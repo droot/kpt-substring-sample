@@ -1,0 +1,13 @@
+apiVersion: fn.kpt.dev/v1alpha1
+kind: EnsureNameSubstring
+metadata: # kpt-merge: /my-config
+  name: my-config
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'fn.kpt.dev|EnsureNameSubstring|default|my-config'
+additionalNameFields:
+  - kind: MyResource
+    group: dev.example.com
+    path: spec/name
+    version: v1
+editMode: prepend
+substring: prod-

@@ -1,0 +1,22 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: ensure-name-substring-advanced
+upstream:
+  type: git
+  git:
+    repo: https://github.com/GoogleContainerTools/kpt-functions-catalog
+    directory: /examples/ensure-name-substring-advanced
+    ref: ensure-name-substring/v0.2.0
+  updateStrategy: resource-merge
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/GoogleContainerTools/kpt-functions-catalog
+    directory: /examples/ensure-name-substring-advanced
+    ref: ensure-name-substring/v0.2.0
+    commit: 66662ce337595b843d9347634d8caa94181d799b
+pipeline:
+  mutators:
+    - image: gcr.io/kpt-fn/ensure-name-substring:unstable
+      configPath: fn-config.yaml
