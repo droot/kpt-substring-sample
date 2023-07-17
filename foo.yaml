@@ -1,0 +1,7 @@
+apiVersion: foo.bar/v1
+kind: SomeCR
+metadata:
+  name: foo-myname
+spec:
+  foo:
+    bar: foo-name
