@@ -1,0 +1,25 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: wildcard
+  namespace: config-control
+spec:
+  name: "*.example.com."
+  type: "A"
+  ttl: 3600
+  managedZoneRef:
+    name: example
+  rrdatasRefs:
+  - kind: ComputeAddress
+    name: ingress-ipv4
+---
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeAddress
+metadata:
+  name: ingress-ipv4
+  namespace: config-control
+spec:
+  addressType: EXTERNAL
+  description: a test global address
+  location: global
+  ipVersion: IPV4
