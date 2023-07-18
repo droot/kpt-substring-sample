@@ -14,14 +14,17 @@ replacements:
       name: wildcard
       kind: DNSRecordSet
     fieldPaths:
-    - rrdatasRefs.[kind=ComputeAddress].name
-#    options:
-#      delimiter: '.'
-#      index: 0
+    - spec.rrdatasRefs.[kind=ComputeAddress].name
+    options:
+      delimiter: '-'
+      index: 0
   - select:
       kind: ComputeAddress
     fieldPaths:
     - metadata.name
-#    options:
-#      delimiter: '.'
-#      index: 0
+    #    options:
+    #      delimiter: '.'
+    #      index: 0
+    options:
+      delimiter: '-'
+      index: 0

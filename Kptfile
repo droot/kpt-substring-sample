@@ -18,7 +18,7 @@ upstreamLock:
     commit: 66662ce337595b843d9347634d8caa94181d799b
 pipeline:
   mutators:
-#    - image: gcr.io/kpt-fn/ensure-name-substring:v0.2.0
-#      configPath: foo-config.yaml
+    #    - image: gcr.io/kpt-fn/ensure-name-substring:v0.2.0
+    #      configPath: foo-config.yaml
     - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
       configPath: update-dns.yaml

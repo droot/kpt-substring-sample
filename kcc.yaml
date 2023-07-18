@@ -3,6 +3,8 @@ kind: DNSRecordSet
 metadata:
   name: wildcard
   namespace: config-control
+  annotations:
+    cnrm.cloud.google.com/blueprint: 'kpt-fn'
 spec:
   name: "*.example.com."
   type: "A"
@@ -11,13 +13,15 @@ spec:
     name: example
   rrdatasRefs:
   - kind: ComputeAddress
-    name: ingress-ipv4
+    name: app1-app
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeAddress
 metadata:
-  name: ingress-ipv4
+  name: app1-app
   namespace: config-control
+  annotations:
+    cnrm.cloud.google.com/blueprint: 'kpt-fn'
 spec:
   addressType: EXTERNAL
   description: a test global address
